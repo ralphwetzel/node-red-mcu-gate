@@ -1,0 +1,48 @@
+
+<!---
+    // *****
+    // 
+    // @ralphwetzel/node-red-mcu-gate
+    // 
+    // Copyright 2023 / Ralph Wetzel
+    // License: MIT
+    //
+    // *****
+-->
+
+<script type="text/html" data-template-name="mcu-gate">
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+
+</script>
+
+<script type="text/javascript">
+
+    RED.nodes.registerType('mcu-gate',{
+        category: 'MCU',
+        color: '#7090c9',
+        defaults: {
+            name: {value:""}
+        },
+        inputs:1,
+        outputs:1,
+        // showLabel: false,
+        paletteLabel: "@MCU gate",
+        icon: "font-awesome/fa-ban",
+        label: function() {
+            return this.name||"gate";
+        },
+        onadd: function() {
+            // ensure no label is shown per default
+            this.l = false;
+        }
+    });
+
+</script>
+
+<script type="text/html" data-help-name="mcu-gate">
+    <p>Node that implements a gate open only when the flow runs on an MCU.</p>
+</script>
