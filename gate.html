@@ -25,15 +25,19 @@
         category: 'MCU',
         color: '#7090c9',
         defaults: {
-            name: {value:""}
+            name: {value:""},
+            l: {value: true}
         },
         inputs:1,
         outputs:1,
         showLabel: false,
-        paletteLabel: "@MCU gate",
-        icon: "font-awesome/fa-ban",
+        paletteLabel: "MCU gate",
+        icon: function() { 
+            return this._mcu?.mcu == true ? "font-awesome/fa-play-circle" : "font-awesome/fa-ban";
+        },
         label: function() {
-            return this.name||"gate";
+            let status = (this._mcu?.mcu == true) ? "Open" : "Closed"
+            return this.name||status;
         },
         onadd: function() {
             // ensure no label is shown per default
@@ -42,11 +46,23 @@
             // this is where the editor tracks the state
             node.l = false;
 
+        },
+        oneditsave: function() {
+            let node = this;
+
+            // this hack ensures that the show-label status is applied propperly,
+            // even despite we're initially showing no label!
+
+            // get the show-label status
+            let status = $("#node-input-show-label").prop('checked');
+
+            // wait until the client has done it's job ... deleting node.l
             setTimeout(() => {
                 if (node) {
-                    // showLabel is only necessary to pass the initial guards.
-                    // Later, if still defined, it makes trouble if you try to show/hide the label via the editors ui.
-                    delete node._def.showLabel;
+                    // set node.l as required...
+                    node.l = status;
+                    // ... & redraw the canvas!
+                    RED.view.redraw();
                 }
             }, 250);
         }
