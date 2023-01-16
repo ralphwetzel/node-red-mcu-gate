@@ -28,4 +28,5 @@ module.exports = function(RED) {
     }
 
     RED.nodes.registerType("mcu-gate",gate);
+    registerMCUModeType("mcu-gate", "mcu-gate");
 }
