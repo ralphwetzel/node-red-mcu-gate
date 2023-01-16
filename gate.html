@@ -37,7 +37,18 @@
         },
         onadd: function() {
             // ensure no label is shown per default
-            this.l = false;
+            let node = this;
+
+            // this is where the editor tracks the state
+            node.l = false;
+
+            setTimeout(() => {
+                if (node) {
+                    // showLabel is only necessary to pass the initial guards.
+                    // Later, if still defined, it makes trouble if you try to show/hide the label via the editors ui.
+                    delete node._def.showLabel;
+                }
+            }, 250);
         }
     });
 
