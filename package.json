@@ -1,6 +1,6 @@
 {
   "name": "@ralphwetzel/node-red-mcu-gate",
-  "version": "1.0.0-rc.1",
+  "version": "1.0.0",
   "description": "Node that implements a gate open only when the flow runs on an MCU",
   "main": "gate.js",
   "scripts": {
