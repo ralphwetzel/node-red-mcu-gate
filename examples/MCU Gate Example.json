@@ -1,0 +1,82 @@
+[
+    {
+        "id": "8e57486a6884e88d",
+        "type": "tab",
+        "label": "MCU Gate",
+        "disabled": false,
+        "info": "",
+        "env": [],
+        "_mcu": {
+            "mcu": false
+        }
+    },
+    {
+        "id": "b047b7d4b7647eb6",
+        "type": "inject",
+        "z": "8e57486a6884e88d",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "_mcu": {
+            "mcu": false
+        },
+        "x": 180,
+        "y": 160,
+        "wires": [
+            [
+                "16586ed35da1e987"
+            ]
+        ]
+    },
+    {
+        "id": "494754e7c9c51cfc",
+        "type": "debug",
+        "z": "8e57486a6884e88d",
+        "name": "debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "_mcu": {
+            "mcu": false
+        },
+        "x": 370,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "16586ed35da1e987",
+        "type": "mcu-gate",
+        "z": "8e57486a6884e88d",
+        "name": "",
+        "l": false,
+        "_mcu": {
+            "mcu": false
+        },
+        "x": 275,
+        "y": 160,
+        "wires": [
+            [
+                "494754e7c9c51cfc"
+            ]
+        ]
+    }
+]
