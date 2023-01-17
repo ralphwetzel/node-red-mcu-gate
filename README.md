@@ -1,13 +1,15 @@
 # node-red-mcu-gate
 
 This package is a contribution to the Node-RED MCU Edition.
+
+
 It provides a Node-RED node that implements a gate open only when the flow runs on an MCU.
 
 <img alt="mcuGate" src="resources/mcu-gate.png"
     style="min-width: 111px; width: 111px; align: center; border: 1px solid lightgray;"/>
 
 ## Rational
-Flows designed to be run on an MCU tend to emit error messages during development - as the system they are developed on lacks dedicated features the flow expects to operate with. These error messages flood the debug panel and fog the view to relevant data.
+Flows designed to be run on an MCU tend to emit error messages during development - as the system they are developed on lacks dedicated features the flow expects to operate with. These error messages flood the Debug Panel and fog the view to relevant data.
 
 This node may be placed into such flows, to pass messages only when the flow is running on an MCU.
 
