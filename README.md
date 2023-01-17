@@ -1,6 +1,6 @@
 # node-red-mcu-gate
 
-This package is a contribution to the Node-RED MCU Edition.
+This package is a contribution to the [Node-RED MCU Edition](https://github.com/phoddie/node-red-mcu).
 
 
 It provides a Node-RED node that implements a gate open only when the flow runs on an MCU.
