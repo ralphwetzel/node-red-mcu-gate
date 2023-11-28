@@ -10,6 +10,15 @@
     // *****
 -->
 
+<!-- This (label) color definition needed to be done 
+    a second time @ onpaletteadd (bottom of script!)
+-->
+<style>
+    .mm_label_style {
+        fill: salmon
+    }
+</style>
+
 <script type="text/html" data-template-name="mcu-gate">
 
     <div class="form-row">
@@ -21,9 +30,17 @@
 
 <script type="text/javascript">
 
+    let gNC = RED.utils.getNodeColor;
+    RED.utils.getNodeColor = function(type, def) {
+        if (type == "mcu-gate") {
+            return "#505050";
+        }
+        return gNC(type, def);
+    }
+
     RED.nodes.registerType('mcu-gate',{
-        category: 'MCU',
-        color: '#7090c9',
+        color: "#C0C0C0",   // only for the flow library
+        category: 'MCU by MicroMagix',
         defaults: {
             name: {value:""},
             l: {value: true}
@@ -65,7 +82,19 @@
                     RED.view.redraw();
                 }
             }, 250);
-        }
+        },
+        labelStyle: function() {
+            let style = ["mm_label_style"];
+            if (this.name) {
+                style.push("node_label_italic")
+            }
+            return style.join(" ");
+        },
+        // micromagix theme
+        onpaletteadd: function(def) {
+            let pn = $(".red-ui-palette-node[data-palette-type='"+this.type+"']");
+            pn?.find(".red-ui-palette-label")?.css({"color": "salmon"});
+        },
     });
 
 </script>

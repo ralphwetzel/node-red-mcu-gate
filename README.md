@@ -6,7 +6,7 @@ This package is a contribution to the [Node-RED MCU Edition](https://github.com/
 It provides a Node-RED node that implements a gate open only when the flow runs on an MCU.
 
 <img alt="mcuGate" src="resources/mcu-gate.png"
-    style="min-width: 111px; width: 111px; align: center; border: 1px solid lightgray;"/>
+    style="min-width: 77px; width: 77px; align: center; border: 1px solid lightgray;"/>
 
 ## Rational
 Flows designed to be run on an MCU tend to emit error messages during development - as the system they are developed on lacks dedicated features the flow expects to operate with. These error messages flood the Debug Panel and fog the view to relevant data.
@@ -125,7 +125,7 @@ cd <userDir>
 ```
 then
 ```bash
-npm install @ralphwetzel/node-red-mcu-plugin
+npm install @ralphwetzel/node-red-mcu-gate
 ```
 
 Please refer to the [Node-RED documentation](https://nodered.org/docs/user-guide/runtime/configuration) for details regarding `<userDir>`.
